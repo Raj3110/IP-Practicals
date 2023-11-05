@@ -1,0 +1,97 @@
+<!-- Design a registration form using form elements in ReactJS along with appropriate validations. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Registration Form</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class RegistrationForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            email: "",
+            password: "",
+            errors: {
+              email: "",
+              password: "",
+            },
+          };
+        }
+
+        handleChange = (event) => {
+          const { name, value } = event.target;
+          let errors = this.state.errors;
+
+          switch (name) {
+            case "email":
+              errors.email =
+                value.length < 5
+                  ? "Email must be at least 5 characters long!"
+                  : "";
+              break;
+            case "password":
+              errors.password =
+                value.length < 8
+                  ? "Password must be at least 8 characters long!"
+                  : "";
+              break;
+          }
+
+          this.setState({ errors, [name]: value });
+        };
+
+        handleSubmit = (event) => {
+          event.preventDefault();
+          if (this.validateForm(this.state.errors)) {
+            window.alert("Valid Form");
+          } else {
+            window.alert("Invalid Form");
+          }
+        };
+
+        validateForm = (errors) => {
+          let valid = true;
+          Object.values(errors).forEach(
+            (val) => val.length > 0 && (valid = false)
+          );
+          return valid;
+        };
+
+        render() {
+          const { errors } = this.state;
+          return (
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="email">Email:</label>
+              <input type="email" name="email" onChange={this.handleChange} />
+              {errors.email.length > 0 && (
+                <span className="error">{errors.email}</span>
+              )}
+              <br />
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                onChange={this.handleChange}
+              />
+              {errors.password.length > 0 && (
+                <span className="error">{errors.password}</span>
+              )}
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+          );
+        }
+      }
+
+      const rootElement = document.getElementById("root");
+      ReactDOM.render(<RegistrationForm />, rootElement);
+    </script>
+  </body>
+</html>

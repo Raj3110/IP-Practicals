@@ -1,0 +1,35 @@
+<!-- Write a JavaScript program to calculate simple interest. Accept principle amount, rate of interest and -->
+<!-- number of years from the user. Use function and arrow function to calculate interest. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS code</title>
+    <style> body{font-size: 4rem;}</style>
+  </head>
+  <body>
+    <script>
+      function calculateSimpleInterest(principal, rate, years) {
+        return (principal * rate * years) / 100;
+      }
+
+      const calculateSimpleInterestArrow = (principal, rate, years) =>
+        (principal * rate * years) / 100;
+
+      let principal = prompt("Enter the principal amount:");
+      let rate = prompt("Enter the rate of interest:");
+      let years = prompt("Enter the number of years:");
+
+      document.write(
+        "Simple Interest (Function): " +
+          calculateSimpleInterest(principal, rate, years) + "<br/>"
+      );
+      document.write(
+        "Simple Interest (Arrow Function): " +
+          calculateSimpleInterestArrow(principal, rate, years)
+      );
+    </script>
+  </body>
+</html>

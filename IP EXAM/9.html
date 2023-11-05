@@ -1,0 +1,28 @@
+<!-- Write a program to demonstrate promise in JavaScript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises in JS</title>
+    <style> body{font-size: 4rem;}</style>
+  </head>
+  <body>
+    <script>
+      let promise = new Promise((resolve, reject) => {
+        const x = "test";
+        const y = "test";
+        if (x === y) {
+          resolve();
+        } else {
+          reject();
+        }
+      });
+
+      promise
+        .then(() => document.write("Promise resolved successfully"))
+        .catch(() => document.write("Promise rejected"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Write a program which demonstrates client-server communication in Node.js. -->
+
+<!-- index.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Client-Server Communication</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Client-Server Communication Example</h1>
+      <p id="message"></p>
+      <button id="fetch-button">Fetch Message</button>
+    </div>
+    <script>
+      // Your JavaScript code here
+      document
+        .getElementById("fetch-button")
+        .addEventListener("click", () => {
+          fetch("http://localhost:5000/")
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById("message").textContent = data;
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

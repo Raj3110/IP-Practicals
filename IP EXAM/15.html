@@ -1,0 +1,35 @@
+<!-- Write a program which demonstrates Hooks (UseEffect), refs in React JS -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Hook and Ref Example</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useEffect, useRef } = React;
+
+      function ExampleComponent() {
+        const myRef = useRef(null);
+
+        useEffect(() => {
+          const myElement = myRef.current;
+          console.log(myElement);
+          myElement.textContent = 'Hello, world!';
+
+          return () => {
+            myElement.textContent = '';
+          };
+        }, []);
+
+        return <div ref={myRef} />;
+      }
+
+      ReactDOM.render(<ExampleComponent />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
