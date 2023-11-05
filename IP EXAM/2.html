@@ -1,0 +1,54 @@
+<!-- Design a registration form with newly introduced form tags in HTML5.  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        h1{
+            width: 100%;
+            background-color: aqua;
+            text-align: center;
+        }
+       .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        } 
+        form {
+            border: 1px solid #f0f0f0;
+            padding: 20px;
+            width: 300px;
+        } 
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+     <div class="container">
+
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+    
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+    
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br>
+    
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+    
+            <label for="website">Website:</label><br>
+            <input type="url" id="website" name="website"><br>
+    
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+            <small>Format: 123-456-7890</small><br>
+    
+            <input type="submit" value="Register">
+        </form>
+     </div>
+</body>
+</html>

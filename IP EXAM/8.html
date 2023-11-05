@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS CLASS CODE</title>
+    <style>
+      body {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        displayData() {
+          return `Name: ${this.name}, Age: ${this.age}`;
+        }
+      }
+
+      class Student extends Person {
+        constructor(name, age, course, marks) {
+          super(name, age);
+          this.course = course;
+          this.marks = marks;
+        }
+
+        displayData() {
+          return `${super.displayData()}, Course: ${this.course}, Marks: ${this.marks}`;
+        }
+      }
+
+      let student1 = new Student("Aniket", 20, "Computer Science", 85);
+      let student2 = new Student("Manish", 22, "Mathematics", 90);
+
+      document.write(student1.displayData()+"<br/>");
+      document.write(student2.displayData());
+    </script>
+  </body>
+</html>

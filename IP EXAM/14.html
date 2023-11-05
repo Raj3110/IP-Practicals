@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Router Example</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { BrowserRouter, Route, Link } = ReactRouterDOM;
+
+      const Home = () => (
+        <div>
+          <h2>Home</h2>
+        </div>
+      );
+
+      const About = () => (
+        <div>
+          <h2>About</h2>
+        </div>
+      );
+
+      const App = () => (
+        <BrowserRouter>
+          <div>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+
+            <hr/>
+
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+          </div>
+        </BrowserRouter>
+      );
+
+      const rootElement = document.getElementById("root");
+      ReactDOM.render(<App />, rootElement);
+    </script>
+  </body>
+</html>
